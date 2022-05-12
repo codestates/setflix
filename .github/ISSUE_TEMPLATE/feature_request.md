@@ -1,26 +1,20 @@
-### ISSUE
-- Group: `client`, `server`, `sr`
-- Type: `bug`, `feature`, `delete`
-- Detail: fix actions from client redux
+---
+name: Feature request
+about: Suggest an idea for this project
+title: ''
+labels: ''
+assignees: ''
 
-### TODO
- 1. [ ] Job1
- 2. [ ] Job2
- 3. [ ] Job3
+---
 
-### Estimated time
->Pick one
+**Is your feature request related to a problem? Please describe.**
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
-`0.5h`
-`1h`
-`1.5h`
-`2h`
-`2.5h`
-`3h`
+**Describe the solution you'd like**
+A clear and concise description of what you want to happen.
 
-### Labels
-- Estimated time: `E: 1h`
-- Group : `client`, `server`
-- Sprint: `Sprint__NUMBER__`
-- Urgency: `High`, `Middle`, `Low`
+**Describe alternatives you've considered**
+A clear and concise description of any alternative solutions or features you've considered.
 
+**Additional context**
+Add any other context or screenshots about the feature request here.
