@@ -11,11 +11,27 @@ export default function Signup () {
       nickname: '',
       email: ''
     })
+
+    const [passwordCheck, setPasswordCheck] = useState({
+        password: ''
+    })
+
     const handleInputValue = (key) => (e) => {
       setUserInfo({...userInfo, [key]: e.target.value})
+      setPasswordCheck({...passwordCheck, [key]: e.target.value})
     }
 
     console.log(userInfo)
+
+    const handleSignup = () => {
+        const {userId, password, nickname, email} = userInfo
+
+        axios.post('https://localhost:4000/signup',
+        {userId, password, nickname, email},
+        {withCredentials: true}
+        )
+        .then ((res) => console.log(res))
+    }
 
     return (
         <div>
@@ -33,6 +49,10 @@ export default function Signup () {
                     <div>
                         <span>패스워드 확인</span>
                         <input type='password-check' />
+                        {userInfo.password === passwordCheck.password ?
+                            <div> 비밀번호가 일치합니다 </div> : 
+                            <div> 비밀번호가 일치하지 않습니다 </div>
+                        }
                     </div>
                     <div>
                         <span>닉네임</span>
@@ -47,7 +67,7 @@ export default function Signup () {
                         <span>이메일 인증</span>
                         <input type='email-check' />
                     </div>
-                    <button className='btn btn-signup' type='submit'>가입하기</button>
+                    <button className='btn btn-signup' type='submit' onClick={handleSignup}>가입하기</button>
                 </form>
             </center>
         </div>

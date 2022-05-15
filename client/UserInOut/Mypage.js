@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Myinfo from '../Component_Junehwan/Myinfo'
 import Myreview from '../Component_Junehwan/Myreview'
 
@@ -9,8 +8,14 @@ export default function Mypage () {
         <div>
           <Myinfo />
         </div>
-        <div>
-          <Myreview />
+        <div id="cart-item-list">
+                {Reviews.map((idx) => {
+                  return <Myreview
+                    key={idx}
+                    title={title}
+                    content={content}
+                  />
+                })}
         </div>
       </div>
     )

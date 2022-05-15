@@ -6,6 +6,7 @@ import axios from 'axios';
          <div>
             <center>
               <div>아이디 찾으실거죠?</div>
+              <div>비밀번호 찾으실거죠?</div>
             </center>
          </div>
         ) 

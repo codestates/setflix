@@ -5,15 +5,24 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 export default function Login () {
-    const [userInfo, setUserInfo] = useState({
+    const [loginInfo, setLoginInfo] = useState({
         userId: '',
         password: '',
     })
     const handleInputValue = (key) => (e) => {
-        setUserInfo({...userInfo, [key]: e.target.value})
+        setLoginInfo({...loginInfo, [key]: e.target.value})
     }
     
-    console.log(userInfo)
+    console.log(loginInfo)
+    
+    const handleLogin = () => {
+        const {userId, password} = loginInfo
+        axios.post('https://localhost:4000/login',
+        {userId, password},
+        {withCredentials: true}
+        )
+        .then((res) => handleResponseSuccess(res))
+    }
 
     return (
         <div>
@@ -28,13 +37,21 @@ export default function Login () {
                         <span>패스워드</span>
                         <input type='password' onChange={handleInputValue('password')}/>
                     </div>
-                    <button className='btn btn-login' type='submit'>
+                    <button className='btn btn-login' type='submit' onClick={handleLogin}>
                         로그인
                     </button>
                     </form>
                 <div>
-                    <Link to='/signup'>회원가입</Link>
-                    <Link to='/findaccount'>아이디/패스워드 찾기</Link>
+                <Link to='/signup'>
+                    <button className='btn btn-tosignup' type='button'>
+                    회원가입
+                    </button>
+                </Link>   
+                <Link to='/findaccount'>
+                    <button className='btn btn-tofindaccount' type='button'>
+                    아이디/패스워드 찾기
+                    </button>
+                </Link>
                 </div>
                 <div>
                     <h1>소셜 로그인</h1>
