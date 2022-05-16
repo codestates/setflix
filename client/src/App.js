@@ -8,6 +8,8 @@ import Mypage from "./UserInOut/Mypage";
 import Modify from "./UserInOut/Modify";
 
 import axios from "axios";
+import Homepage from "./Movie/Homepage";
+import Movielist from "./Movie/Movielist";
 // import './App.css'
 
 export default function App() {
@@ -27,7 +29,7 @@ export default function App() {
   };
 
   const handleLogout = () => {
-    axios.post("http://localhost:4000/fsignout", { withCredentials: true }).then((res) => {
+    axios.post("https://localhost:4000/signout", { withCredentials: true }).then((res) => {
       setUserInfo(null);
       setIsLogin(false);
       navigate.push("/");
@@ -41,12 +43,13 @@ export default function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/" element={<Login />} />
+        <Route exact path="/" element={<Homepage />} />
         <Route path="/Login" element={<Login isLogin={isLogin} handleResponseSuccess={handleResponseSuccess} />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/FindAccount" element={<Findaccount />} />
         <Route path="/Mypage" element={<Mypage userInfo={userInfo} handleLogout={handleLogout} />} />
         <Route path="/Modify" element={<Modify />} />
+        <Route path="/Movielist" element={<Movielist />} />
       </Routes>
     </div>
   );
