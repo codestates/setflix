@@ -4,4 +4,5 @@ module.exports = {
   login: require("./users/login"),
   logout: require("./users/logout"),
   modify: require("./users/modify.js"),
+  auth: require("./users/auth.js"),
 };
