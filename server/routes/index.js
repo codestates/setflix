@@ -5,7 +5,7 @@ const movieRouter = require("./movies");
 const reviewRouter = require("./reviews");
 
 router.use("/users", userRouter);
-router.use("/movies", movieRouter);
-router.use("/reviews", reviewRouter);
+// router.use("/movies", movieRouter);
+// router.use("/reviews", reviewRouter);
 
 module.exports = router;
