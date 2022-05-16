@@ -34,7 +34,7 @@ export default function App () {
         .then((res) => {
           setUserInfo(null);
           setIsLogin(false);
-          navigate.push('/');
+          navigate('/');
         });
       };
 

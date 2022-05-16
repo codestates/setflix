@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Nav from '../Componet_Soonkyu/Nav';
 
 axios.defaults.withCredentials = true;
 
@@ -26,6 +27,7 @@ export default function Login () {
 
     return (
         <div>
+            <Nav/>
             <center>
                 <h1>로그인</h1>
                 <form onSubmit={(e) => e.preventDefault()}>
