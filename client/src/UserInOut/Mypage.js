@@ -8,15 +8,18 @@ export default function Mypage () {
         <div>
           <Myinfo />
         </div>
-        <div id="cart-item-list">
-                {Reviews.map((idx) => {
-                  return <Myreview
-                    key={idx}
-                    title={title}
-                    content={content}
-                  />
-                })}
+
+        <div>
+          <Myreview />
         </div>
       </div>
     )
 }
+
+// {Reviews.map((idx) => {
+//   return <Myreview
+//     key={idx}
+//     title={title}
+//     content={content}
+//   />
+// })}
