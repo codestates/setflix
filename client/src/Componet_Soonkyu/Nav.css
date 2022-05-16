@@ -1,0 +1,78 @@
+/*{
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin:0px;
+    padding:0px;
+    color:wheat;
+}
+*/
+
+.navigation {
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 60px;
+    display:flex;
+    align-items: center;
+    position: sticky; /*위에 고정*/
+    background-color: black;
+    color:wheat;
+    z-index: 100; /*겹치는 부분에 대한 값*/
+}
+
+.navigation_left {
+    display: flex;
+    align-items: center;
+}
+
+.navigation_logo {
+    width: 100px;
+    object-fit: contain; /*컨테이너 크기에 맞춤 */
+    margin: 0 20px; /* 상하 0 좌우 20 */
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.navigation_home:hover{
+    background-color: blue;
+    border-radius: 4px;
+}
+
+.navigation_loginsignup:hover{
+    background-color: blue;
+    border-radius: 4px;
+}
+
+.searchbar {
+    width: 500px;
+    color: black;
+}
+
+.searchIcon {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media screen and (max-width:705px){
+    .navigation{
+        flex-direction: column;
+    }
+    .searchbar {
+        width: 300px;
+    }
+}
+/*
+.intro_bj{
+    background-image:url("image/sample.png") ;
+    width:100%;
+
+}
+*/
