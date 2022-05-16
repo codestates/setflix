@@ -4,17 +4,17 @@ import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
-export default function Signup () {
-    const [userInfo, setUserInfo] = useState({
-      userId: '',
-      password: '',
-      nickname: '',
-      email: ''
-    })
+export default function Signup() {
+  const [userInfo, setUserInfo] = useState({
+    userId: "",
+    password: "",
+    nickname: "",
+    email: "",
+  });
 
-    const [passwordCheck, setPasswordCheck] = useState({
-        password: ''
-    })
+  const [passwordCheck, setPasswordCheck] = useState({
+    password: "",
+  });
 
     const navigate = useNavigate()
 
@@ -26,8 +26,8 @@ export default function Signup () {
     console.log(userInfo.password)
     console.log(passwordCheck.password)
 
-    const handleSignup = () => {
-        const {userId, password, nickname, email} = userInfo
+  const handleSignup = () => {
+    const { userId, password, nickname, email } = userInfo;
 
         axios.post('http://localhost:4000/setflix/users/signup',
         {userId, password, nickname, email},

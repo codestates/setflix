@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate, Redirect } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Routes, Route, useNavigate, Redirect } from "react-router-dom";
 
-import Login from './UserInOut/Login'
-import Signup from './UserInOut/Signup'
-import Findaccount from './UserInOut/Findaccount'
-import Mypage from './UserInOut/Mypage'
-import Modify from './UserInOut/Modify'
+import Login from "./UserInOut/Login";
+import Signup from "./UserInOut/Signup";
+import Findaccount from "./UserInOut/Findaccount";
+import Mypage from "./UserInOut/Mypage";
+import Modify from "./UserInOut/Modify";
 
 import axios from 'axios';
+import Homepage from "./Movie/Homepage";
+import Movielist from "./Movie/Movielist";
 import './Page.css'
 // import './App.css'
 
@@ -44,7 +46,7 @@ export default function App () {
     return (
         <div>
             <Routes>
-                <Route exact path='/' element={<Login />} />
+                <Route exact path='/' element={<Homepage />} />
                 <Route path='/Login' element={
                     <Login isLogin={isLogin} handleResponseSuccess={handleResponseSuccess} />} />
                 <Route path='/Signup' element={<Signup />} />

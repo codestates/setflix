@@ -33,7 +33,14 @@ export default function Login () {
             navigate('/mypage'))
     }
 
-    return (
+  console.log(loginInfo);
+
+  const handleLogin = () => {
+    const { userId, password } = loginInfo;
+    axios.post("http://localhost:4000/setflix/users/login", { userId, password }, { withCredentials: true }).then((res) => handleResponseSuccess(res));
+  };
+
+  return (
         <div>
             <center>
                 <h1>로그인</h1>
@@ -69,5 +76,5 @@ export default function Login () {
                 </div>
             </center>
         </div>
-    )
+  );
 }
