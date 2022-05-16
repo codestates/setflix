@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 axios.defaults.withCredentials = true;
@@ -16,60 +16,65 @@ export default function Signup () {
         password: ''
     })
 
+    const navigate = useNavigate()
+
     const handleInputValue = (key) => (e) => {
       setUserInfo({...userInfo, [key]: e.target.value})
       setPasswordCheck({...passwordCheck, [key]: e.target.value})
     }
 
-    console.log(userInfo)
+    console.log(userInfo.password)
+    console.log(passwordCheck.password)
 
     const handleSignup = () => {
         const {userId, password, nickname, email} = userInfo
 
-        axios.post('https://localhost:4000/signup',
+        axios.post('http://localhost:4000/setflix/users/signup',
         {userId, password, nickname, email},
         {withCredentials: true}
         )
-        .then ((res) => console.log(res))
+        .then ((res) => navigate('/login'))
     }
 
     return (
-        <div>
-            <center>
+        <div className='signup'>
+                <center>
                 <h1>회원가입</h1>
+                </center>
                 <form onSubmit={(e) => e.preventDefault()}>
                     <div>
                         <span>아이디</span>
-                        <input type='userId' onChange={handleInputValue('userId')}/>
+                        <input className='input-box' type='userId' onChange={handleInputValue('userId')}/>
                     </div>
                     <div>
                         <span>패스워드</span>
-                        <input type='password' onChange={handleInputValue('password')}/>
+                        <input className='input-box' type='password' onChange={handleInputValue('password')}/>
                     </div>
                     <div>
                         <span>패스워드 확인</span>
-                        <input type='password-check' />
-                        {userInfo.password === passwordCheck.password ?
-                            <div> 비밀번호가 일치합니다 </div> : 
-                            <div> 비밀번호가 일치하지 않습니다 </div>
-                        }
+                        <input className='input-box' type='password' onChange={handleInputValue('passwordCheck')}/>
+                        <div> {userInfo.password === passwordCheck.password ?
+                            '비밀번호가 일치합니다' : 
+                            '비밀번호가 일치하지 않습니다'
+                        } </div>
                     </div>
                     <div>
                         <span>닉네임</span>
-                        <input type='nickname' onChange={handleInputValue('nickname')} />
+                        <input className='input-box' type='nickname' onChange={handleInputValue('nickname')} />
                     </div>
                     <div>
                         <span>이메일</span>
-                        <input type='email' onChange={handleInputValue('email')} />
+                        <input className='input-box' type='email' onChange={handleInputValue('email')} />
+                        <button className='btn email-check' type='button'>인증하기</button>
                     </div>
-                    <button className='btn email-check' type='submit'>인증하기</button>
                     <div>
                         <span>이메일 인증</span>
-                        <input type='email-check' />
+                        <input className='input-box' type='email-check' />
                     </div>
-                    <button className='btn btn-signup' type='submit' onClick={handleSignup}>가입하기</button>
+                    <center>
+                    <button className='btn btn-signup' type='button' onClick={handleSignup}>가입하기</button>
+                    </center>
                 </form>
-            </center>
         </div>
     )
 }
