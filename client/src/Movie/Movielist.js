@@ -11,11 +11,7 @@ function Movielist () {
                 <div className='movie-row'>
                     <p>영화 리스트</p>
                     <span>최신영화</span>
-                    <List
-                     id="1" title ="어벤져스"
-                     image ="https://t1.daumcdn.net/cfile/tistory/997473445CACC98309"
-                     grade = {2}
-                     review = "재밌어요" />
+                    <List/>
                 </div>
                 <div className='movie-row'>
 

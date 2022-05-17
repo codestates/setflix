@@ -33,8 +33,13 @@ return (
             </div>
         </div>
         <div className="navigation_right">
-            <Link to ="/Login">login/signup
-            </Link>
+            <div className="navigation_login">
+                <Link to ="/Login">login</Link>
+            </div>
+            /
+            <div className="navigation_signup">
+                <Link to ="/Signup">signup</Link>
+            </div>
         </div>
     </nav>
 );

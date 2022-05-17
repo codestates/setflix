@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Nav from '../Componet_Soonkyu/Nav';
 
@@ -35,6 +35,7 @@ export default function Login({ handleResponseSuccess }) {
 
   return (
     <div>
+      <Nav/>
       <center>
         <h1>로그인</h1>
         <form onSubmit={(e) => e.preventDefault()}>

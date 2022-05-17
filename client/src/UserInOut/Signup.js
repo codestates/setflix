@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Nav from '../Componet_Soonkyu/Nav';
 
@@ -35,12 +35,12 @@ export default function Signup() {
 
   return (
     <div className="signup">
+      <Nav/>
       <center>
         <h1>회원가입</h1>
       </center>
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
-            <Nav/>
             <center>
                 <h1>회원가입</h1>
                 <form onSubmit={(e) => e.preventDefault()}>

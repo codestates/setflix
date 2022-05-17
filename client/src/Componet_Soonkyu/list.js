@@ -1,9 +1,51 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import Movielist from "../Movie/Movielist";
 import './list.css';
 
-function List( {id, title, image, review, grade } ) {
+function handleMovie() {
+    const [movieData, setMoiveData] = useState([{
+        title: '',
+        photo: '',
+        releasedAt: '',
+        description: ''
+    }])
+
+    useEffect(async() => {
+        try{
+            const res = await axios.get("http://localhost:4000/setflix/movies")
+            const Movielist = await res.data.map((Moviedata) => (
+                {
+                    title: Moviedata.title,
+                    image: Moviedata.photo,
+                    releasedAtL: Moviedata.releasedAt,
+                    description: Moviedata.description
+                })
+            )
+            setMoiveData(movieData.concat(Movielist))
+        } catch(e){
+            console.error(e.message)
+        }
+    },[])
+
+    console.log(Movielist.title);
+
     return (
         <div className="listall">
+            title: {Movielist.title}
+            <span>
+            id
+            image
+            grade
+            review
+            </span>
+        </div>
+    )
+}
+
+export default handleMovie;
+
+/*
             <div className="list_info">
                 <p><img src={image} alt=""/></p>
                 <span>영화이름 : {title}</span>
@@ -32,7 +74,6 @@ function List( {id, title, image, review, grade } ) {
                 alt="movie1"/>
                 */
 
-export default List;
 
 /* API 받고 장르 별로 */
 
