@@ -36,7 +36,7 @@ export default function Postreview () {
           </div>
           <div>
             <span>제목</span>
-            <input type='movie-title' onChange={handleInputValue('movie-title')} />
+            <input className='movie-title' />
           </div>
           <div>
             <span>평점</span>
@@ -44,7 +44,7 @@ export default function Postreview () {
           </div>
           <div>
             <span>후기</span>
-            <input type='movie-review' onChange={handleInputValue('movie-review')} />
+            <input className='movie-review' onChange={handleInputValue('review')} />
           </div>
           <button className='btn review-submit' onClick={handlePostReview}>제출하기</button>
           </form>

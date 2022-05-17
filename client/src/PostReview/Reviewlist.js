@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Movieevaluate from '../Component_Junehwan/movieevaluate';
+import Nav from '../Componet_Soonkyu/Nav';
 
 export default function Reviewlist () {
 
     return (
         <div>
+            <Nav />
             <div>
                 <Movieevaluate />
             </div>

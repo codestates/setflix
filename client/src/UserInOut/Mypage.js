@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Myinfo from "../Component_Junehwan/Myinfo";
 import Myreview from "../Component_Junehwan/Myreview";
+import Nav from '../Componet_Soonkyu/Nav';
 
-export default function Mypage({ userinfo, handleLogout }) {
+export default function Mypage({ userInfo, handleLogout }) {
   return (
     <div>
+      <Nav />
       <div className="myinfo">
-        <Myinfo userinfo={userinfo} handleLogout={handleLogout} />
+        <Myinfo userInfo={userInfo} handleLogout={handleLogout} />
       </div>
 
       <div className="myreview">
