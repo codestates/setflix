@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import './list.css';
 
 function List( {id, title, image, review, grade } ) {
@@ -21,7 +22,16 @@ function List( {id, title, image, review, grade } ) {
             <div className="list_review">
                 <span>후기 : {review}</span>
             </div>
+            <Link to={{
+                pathname: '/Postreview',
+                state: {
+                    title: title,
+                    image: image,
+                    grade: grade
+                  }
+                }}>
             <button>후기 쓰기</button>
+            </Link>
             <p></p>
         </div>
     );

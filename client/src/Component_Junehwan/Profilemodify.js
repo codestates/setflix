@@ -14,12 +14,12 @@ export default function Profilemodify () {
             </div>
             <div>
               <span>닉네임</span>
-              <span>{}</span>
+              <span></span>
               <button className='btn info-change'>변경하기</button>
             </div>
             <div>
               <span>이메일</span>
-              <span>{}</span>
+              <span></span>
               <button className='btn info-change'>변경하기</button>
             </div>
               <button className='btn signout'>회원 탈퇴</button>
