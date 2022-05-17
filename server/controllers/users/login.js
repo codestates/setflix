@@ -15,7 +15,8 @@ module.exports = (req, res) => {
         return res.status(404).send("invalid user");
       }
       const accessToken = generateAccessToken(data.dataValues);
-      // console.log(data.dataValues);
+      console.log(data.dataValues);
+      console.log(accessToken);
       sendAccessToken(res, accessToken); //쿠키로보낸다.
       res.status(200).send({ message: "ok" });
     })

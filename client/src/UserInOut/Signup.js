@@ -5,36 +5,40 @@ import Nav from '../Componet_Soonkyu/Nav';
 
 axios.defaults.withCredentials = true;
 
-export default function Signup () {
-    const [userInfo, setUserInfo] = useState({
-      userId: '',
-      password: '',
-      nickname: '',
-      email: ''
-    })
+export default function Signup() {
+  const [userInfo, setUserInfo] = useState({
+    userId: "",
+    password: "",
+    nickname: "",
+    email: "",
+  });
 
-    const [passwordCheck, setPasswordCheck] = useState({
-        password: ''
-    })
+  const [passwordCheck, setPasswordCheck] = useState({
+    password: "",
+  });
 
-    const handleInputValue = (key) => (e) => {
-      setUserInfo({...userInfo, [key]: e.target.value})
-      setPasswordCheck({...passwordCheck, [key]: e.target.value})
-    }
+  const navigate = useNavigate();
 
-    console.log(userInfo)
+  const handleInputValue = (key) => (e) => {
+    setUserInfo({ ...userInfo, [key]: e.target.value });
+    setPasswordCheck({ ...passwordCheck, [key]: e.target.value });
+  };
 
-    const handleSignup = () => {
-        const {userId, password, nickname, email} = userInfo
+  console.log(userInfo.password);
+  console.log(passwordCheck.password);
 
-        axios.post('https://localhost:4000/signup',
-        {userId, password, nickname, email},
-        {withCredentials: true}
-        )
-        .then ((res) => console.log(res))
-    }
+  const handleSignup = () => {
+    const { userId, password, nickname, email } = userInfo;
 
-    return (
+    axios.post("http://localhost:4000/setflix/users/signup", { userId, password, nickname, email }).then((res) => navigate("/login"));
+  };
+
+  return (
+    <div className="signup">
+      <center>
+        <h1>회원가입</h1>
+      </center>
+      <form onSubmit={(e) => e.preventDefault()}>
         <div>
             <Nav/>
             <center>
@@ -73,5 +77,7 @@ export default function Signup () {
                 </form>
             </center>
         </div>
-    )
+      </form>
+    </div>
+  );
 }
