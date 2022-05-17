@@ -24,9 +24,9 @@ export default function Login({ handleResponseSuccess }) {
     axios
       .post("http://localhost:4000/setflix/users/login", { userId: loginInfo.userId, password: loginInfo.password })
       .then((res) => {
-        // console.log(res);
         handleResponseSuccess();
       })
+      .then((res) => navigate("/mypage"))
       .catch((err) => err);
   };
 

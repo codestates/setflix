@@ -3,7 +3,7 @@ const axios = require("axios");
 const { get } = require("./routes");
 
 const baseUrl = "https://api.themoviedb.org/3/movie/";
-const imageUrl = "hppt://image.tmdb.org/t/p/사이즈";
+const imageUrl = "http://image.tmdb.org/t/p/w94";
 const apiKey = process.env.API;
 
 // const movies = baseUrl + `/popular?api_key=${apiKey}&language=ko-KR&page=1`;

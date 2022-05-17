@@ -33,7 +33,6 @@ export default function App() {
         setIsLogin(true);
         setUserInfo(res.data.data.userInfo);
         if (isLogin === true) {
-          navigate("/mypage");
         }
       })
       .catch((err) => err);
