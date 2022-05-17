@@ -31,7 +31,6 @@ export default function App() {
         setIsLogin(true);
         setUserInfo(res.data.data.userInfo);
         if (isLogin === true) {
-          navigate("/mypage");
         }
       })
       .catch((err) => err);
@@ -55,7 +54,7 @@ export default function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/" element={<Homepage isLogin={isLogin} />} />
         <Route path="/Login" element={<Login isLogin={isLogin} handleResponseSuccess={handleResponseSuccess} />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/FindAccount" element={<Findaccount />} />
