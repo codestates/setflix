@@ -15,6 +15,8 @@ module.exports = async (req, res) => {
       if (!created) {
         return res.status(409).send("email id");
       }
+      const accessToken = generateAccessToken(result.dataValues);
+      sendAccessToken(res, accessToken);
       res.status(201).send({ message: "ok" });
     });
 };
