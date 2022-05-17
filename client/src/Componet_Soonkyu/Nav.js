@@ -3,6 +3,21 @@ import './Nav.css';
 import { Link } from 'react-router-dom';
 
 function Nav({ isLogin, handleLogout }) {
+/*
+    const hadleSearch = () => {
+        let nextState = {};
+        nextState[e.target.name] = e.tartget.value;
+        this.setState(nextState);
+    }
+
+    const [] = usesStateValue();
+
+    const handleoption = () => {
+        if(users) {
+            
+        }
+    }
+*/
 return (
     <nav className="navigation">
         <div className="navigation_left">
@@ -30,6 +45,7 @@ return (
 );
 }
 
+//   <span /*onClick={handleResponse}*/ className="navigation_option"> {user ? 'login/signup' : '환영합니다'}</span>
 // {users.profile}, {users.nickname}님 환영합니다. / 로그인 시 프로필 이미지, 환영합니다 넣기
 
 
