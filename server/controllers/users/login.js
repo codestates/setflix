@@ -1,7 +1,10 @@
 const { user } = require("../../models");
 const { generateAccessToken, sendAccessToken } = require("../tokenFunctions");
+const { sign } = require('jsonwebtoken');
 
 module.exports = (req, res) => {
+  console.log(req.cookies)
+  console.log(req.body)
   const { userId, password } = req.body;
   user
     .findOne({
