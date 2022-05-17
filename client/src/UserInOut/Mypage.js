@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import Myinfo from '../Component_Junehwan/Myinfo'
 import Myreview from '../Component_Junehwan/Myreview'
+import Nav from '../Componet_Soonkyu/Nav';
 
 
 export default function Mypage (props) {
-  console.log(props)
+  // console.log(props.userInfo.data.data.nickname)
     return (
       <div>
+        <Nav />
         <div className='myinfo'>
-          <Myinfo />
+          <Myinfo userInfo={props.userInfo} handleLogout={props.handleLogout} />
         </div>
 
         <div className='myreview'>

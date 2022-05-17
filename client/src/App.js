@@ -19,14 +19,20 @@ export default function App () {
     const navigate = useNavigate()
 
 
-    const isAuthenticated = (data) => {
+    console.log(userInfo)
+    console.log(isLogin)
+    const isAuthenticated = (info) => {
         // TODO: 이제 인증은 성공했습니다. 사용자 정보를 호출하고, 이에 성공하면 로그인 상태를 바꿉시다.
           setIsLogin(true);
-          setUserInfo(data)
+          setUserInfo(info)
       }
     
-    const handleResponseSuccess = (data) => {
-        isAuthenticated(data);
+    const handleResponseSuccess = (info) => {
+        isAuthenticated(info);
+        if (!info.data.data) {
+        } else {
+         navigate('/mypage')
+        }
     }
 
     const handleLogout = () => {
@@ -53,7 +59,8 @@ export default function App () {
                 <Route path='/FindAccount' element={<Findaccount />} />
                 <Route path='/Mypage' element={
                     <Mypage userInfo={userInfo} handleLogout={handleLogout} />} />
-                <Route path='/Modify' element={<Modify handleLogout={handleLogout} />} />
+                <Route path='/Modify' element={
+                    <Modify userInfo={userInfo} handleLogout={handleLogout} />} />
             </Routes>
         </div>
     )

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
-export default function Login () {
+export default function Login ( {handleResponseSuccess} ) {
     const [loginInfo, setLoginInfo] = useState({
         userId: '',
         password: '',
@@ -18,10 +18,6 @@ export default function Login () {
         }
     }
     
-    console.log(loginInfo)
-
-    const navigate = useNavigate()
-    
     const handleLogin = () => {
         const {userId, password} = loginInfo
         axios.post('http://localhost:4000/setflix/users/login',
@@ -29,16 +25,8 @@ export default function Login () {
         {withCredentials: true}
         )
         .then((res) =>
-            handleResponseSuccess(res),
-            navigate('/mypage'))
+            handleResponseSuccess(res))
     }
-
-  console.log(loginInfo);
-
-  const handleLogin = () => {
-    const { userId, password } = loginInfo;
-    axios.post("http://localhost:4000/setflix/users/login", { userId, password }, { withCredentials: true }).then((res) => handleResponseSuccess(res));
-  };
 
   return (
         <div>

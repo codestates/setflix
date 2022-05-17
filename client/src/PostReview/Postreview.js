@@ -13,7 +13,7 @@ export default function Postreview () {
     }
 
     const handlePostReview = () => {
-      const {movieTitle, movieReview} = loginInfo
+      const {movieTitle, movieReview} = movieReview
       axios.post('https://localhost:4000/review',
       {movieTitle, movieReview},
       {withCredentials: true}
@@ -46,7 +46,7 @@ export default function Postreview () {
             <span>후기</span>
             <input type='movie-review' onChange={handleInputValue('movie-review')} />
           </div>
-          <button className='btn review-submit' onClick={handlePostReview}>제출하기</button>
+          <button className='btn review-submit' type='button' onClick={handlePostReview}>제출하기</button>
           </form>
         </div>
       </div>

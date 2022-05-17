@@ -3,13 +3,14 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Mypage from '../UserInOut/Mypage'
 
-export default function Myinfo (props, handleLogout) {
+export default function Myinfo (props) {
+    const { nickname } = props.userInfo.data.data
     return (
         <div>
             <img className="profile-pic" />
             <div>
                 <span> 등급 </span>
-                <span> 닉네임 {props.nickname} </span>
+                <span> 닉네임 {nickname} </span>
             </div>
             <div> 내 후기 갯수 {}개 </div>
             <div> 팔로워 수 {}명 </div>
@@ -24,7 +25,7 @@ export default function Myinfo (props, handleLogout) {
 
             <div>
             <Link to='/login'>
-              <button className='btn logout' onClick={() => handleLogout}>로그아웃</button>
+              <button className='btn logout' onClick={props.handleLogout}>로그아웃</button>
             </Link>
             </div>
         </div>

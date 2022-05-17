@@ -23,9 +23,6 @@ export default function Signup() {
       setPasswordCheck({...passwordCheck, [key]: e.target.value})
     }
 
-    console.log(userInfo.password)
-    console.log(passwordCheck.password)
-
   const handleSignup = () => {
     const { userId, password, nickname, email } = userInfo;
 
