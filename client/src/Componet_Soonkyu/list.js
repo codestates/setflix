@@ -1,6 +1,8 @@
+
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Movielist from "../Movie/Movielist";
+
 import './list.css';
 
 function handleMovie() {
@@ -63,7 +65,16 @@ export default handleMovie;
             <div className="list_review">
                 <span>후기 : {review}</span>
             </div>
+            <Link to={{
+                pathname: '/Postreview',
+                state: {
+                    title: title,
+                    image: image,
+                    grade: grade
+                  }
+                }}>
             <button>후기 쓰기</button>
+            </Link>
             <p></p>
         </div>
     );

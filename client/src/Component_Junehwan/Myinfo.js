@@ -3,13 +3,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Mypage from "../UserInOut/Mypage";
 
-export default function Myinfo({ userinfo, handleLogout }) {
+export default function Myinfo({ userInfo, handleLogout }) {
   return (
     <div>
       <img className="profile-pic" />
       <div>
         <span> 등급 </span>
-        <span> 닉네임 {userinfo.nickname} </span>
+        <span> 닉네임 {userInfo.nickname} </span>
       </div>
       <div> 내 후기 갯수 {}개 </div>
       <div> 팔로워 수 {}명 </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import './Nav.css';
 import { Link } from 'react-router-dom';
 
-function Nav() {
+function Nav({ isLogin, handleLogout }) {
 /*
     const hadleSearch = () => {
         let nextState = {};
@@ -33,13 +33,13 @@ return (
             </div>
         </div>
         <div className="navigation_right">
-            <div className="navigation_login">
-                <Link to ="/Login">login</Link>
-            </div>
-            /
-            <div className="navigation_signup">
-                <Link to ="/Signup">signup</Link>
-            </div>
+        {isLogin === true ? 
+        <div>
+        <Link to ="/Mypage">mypage</Link>
+        <button type='button' onClick={handleLogout}>logout</button>
+        </div>:
+        <Link to ="/Login">login/signup</Link>
+        }
         </div>
     </nav>
 );
@@ -50,3 +50,5 @@ return (
 
 
 export default Nav;
+
+
