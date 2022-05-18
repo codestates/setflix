@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Nav from '../Componet_Soonkyu/Nav';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Nav from "../Componet_Soonkyu/Nav";
 
 axios.defaults.withCredentials = true;
 
@@ -19,29 +19,24 @@ export default function Login({ handleResponseSuccess }) {
     }
   };
 
-  const navigate = useNavigate();
-
   const handleLogin = () => {
     axios
       .post("http://localhost:4000/setflix/users/login", { userId: loginInfo.userId, password: loginInfo.password })
       .then((res) => {
         handleResponseSuccess();
       })
-      .then((res) => navigate("/mypage"))
       .catch((err) => err);
   };
 
-  console.log(loginInfo);
-
   return (
     <div>
-      <Nav/>
+      <Nav />
       <center>
         <h1>로그인</h1>
         <form onSubmit={(e) => e.preventDefault()}>
           <div>
             <span>아이디</span>
-            <input className="input-box" type="userId" onChange={handleInputValue("userId")} />
+            <input className="input-box" type="text" onChange={handleInputValue("userId")} />
           </div>
           <div>
             <span>패스워드</span>
@@ -62,11 +57,6 @@ export default function Login({ handleResponseSuccess }) {
               아이디/패스워드 찾기
             </button>
           </Link>
-        </div>
-        <div>
-          <h3>소셜 로그인</h3>
-          <div>네이버 로그인</div>
-          <div>카카오 로그인</div>
         </div>
       </center>
     </div>
