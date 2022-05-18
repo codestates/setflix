@@ -9,6 +9,7 @@ export default function Mypage({ userInfo, handleLogout }) {
       <Nav />
       <div className="myinfo">
         <Myinfo userInfo={userInfo} handleLogout={handleLogout} />
+
       </div>
 
       <div className="myreview">
