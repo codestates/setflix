@@ -1,6 +1,6 @@
-const { movie } = require("../../models");
+const { review } = require("../../models");
 
 module.exports = async (req, res) => {
-  movie.findAll().then((data) => res.status(200).send(data));
-  // console.log("get movies");
+  const id = req.params.id; //삭제는 reviews테이블 id기준
+  review.destroy({ where: { id: id } }).then((data) => res.status(204).send("후기 삭제 완료"));
 };

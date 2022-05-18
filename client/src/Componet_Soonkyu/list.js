@@ -1,48 +1,42 @@
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Movielist from "../Movie/Movielist";
 
-import './list.css';
+import "./list.css";
 
 function handleMovie() {
-    const [movieData, setMoiveData] = useState([{
-        title: '',
-        photo: '',
-        releasedAt: '',
-        description: ''
-    }])
+  const [movieData, setMoiveData] = useState([
+    {
+      title: "",
+      photo: "",
+      releasedAt: "",
+      description: "",
+    },
+  ]);
 
-    useEffect(async() => {
-        try{
-            const res = await axios.get("http://localhost:4000/setflix/movies")
-            const Movielist = await res.data.map((Moviedata) => (
-                {
-                    title: Moviedata.title,
-                    image: Moviedata.photo,
-                    releasedAtL: Moviedata.releasedAt,
-                    description: Moviedata.description
-                })
-            )
-            setMoiveData(movieData.concat(Movielist))
-        } catch(e){
-            console.error(e.message)
-        }
-    },[])
+  useEffect(async () => {
+    try {
+      const res = await axios.get("http://localhost:4000/setflix/movies");
+      const Movielist = await res.data.map((Moviedata) => ({
+        title: Moviedata.title,
+        image: Moviedata.photo,
+        releasedAtL: Moviedata.releasedAt,
+        description: Moviedata.description,
+      }));
+      setMoiveData(movieData.concat(Movielist));
+    } catch (e) {
+      console.error(e.message);
+    }
+  }, []);
 
-    console.log(Movielist.title);
+  console.log(Movielist.title);
 
-    return (
-        <div className="listall">
-            title: {Movielist.title}
-            <span>
-            id
-            image
-            grade
-            review
-            </span>
-        </div>
-    )
+  return (
+    <div className="listall">
+      title: {Movielist.title}
+      <span>id image grade review</span>
+    </div>
+  );
 }
 
 export default handleMovie;
@@ -85,9 +79,7 @@ export default handleMovie;
                 alt="movie1"/>
                 */
 
-
 /* API 받고 장르 별로 */
-
 
 /*
 import { Component } from 'react';
