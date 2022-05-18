@@ -1,20 +1,34 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-export default function Myreview () {
-   // axios.get('http://localhost:4000/setflix/reviews', {})
-   // .then((res) => console.log(res))
+export default function Myreview({ userInfo }) {
+  const [myReviews, setMyReviews] = useState([{ title: "", comment: "", updateAt: "" }]);
 
-    return (
-        <div>
-            <img className='movie-pic' />
-            <div>후기 제목</div>
-            <div>후기 내용</div>
-            <div>날짜</div>
+  useEffect(() => {
+    axios.get(`http://localhost:4000/setflix/reviews/${userInfo.id}`).then((res) => setMyReviews(res.data));
+  }, []);
+
+  console.log(myReviews);
+
+  //   const review = myReviews.map();
+  return (
+    <div>
+      {myReviews.length === 0 ? (
+        <div>작성한 후기가 없습니다.</div>
+      ) : (
+        myReviews.map((review) => (
+          <div key={review.id}>
+            <img className="movie-pic" />
+            <div>{review.title}</div>
+            <div>{review.comment}</div>
+            <div>{review.updatedAt}</div>
             <div>
               <span>수정하기</span>
               <span>삭제하기</span>
             </div>
-        </div>
-    )
+          </div>
+        ))
+      )}
+    </div>
+  );
 }
