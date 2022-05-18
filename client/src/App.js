@@ -32,8 +32,6 @@ export default function App() {
       .then((res) => {
         setIsLogin(true);
         setUserInfo(res.data.data.userInfo);
-        if (isLogin === true) {
-        }
       })
       .catch((err) => err);
   };

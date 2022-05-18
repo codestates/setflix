@@ -1,53 +1,62 @@
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Movielist from "../Movie/Movielist";
-
 import './list.css';
+import sampledata from "./sample.json";
 
-function handleMovie() {
-    const [movieData, setMoiveData] = useState([{
-        title: '',
-        photo: '',
-        releasedAt: '',
-        description: ''
-    }])
 
-    useEffect(async() => {
-        try{
+function handleMovie( ) {
+    const [movieData, setMovieData] = useState([]);
+    const imageUrl = "https://image.tmdb.org/t/p/w94";
+
+    useEffect( () => {
+        async function fetchData() {
             const res = await axios.get("http://localhost:4000/setflix/movies")
-            const Movielist = await res.data.map((Moviedata) => (
+            .then((res) => setMovieData(res.data))
+            const Movielist = res.movies.map((Movie) => (
                 {
-                    title: Moviedata.title,
-                    image: Moviedata.photo,
-                    releasedAtL: Moviedata.releasedAt,
-                    description: Moviedata.description
+                    title: Movie.title,
+                    image: Movie.photo,
+                    releasedAtL: Movie.releasedAt,
+                    description: Movie.description
                 })
             )
-            setMoiveData(movieData.concat(Movielist))
-        } catch(e){
-            console.error(e.message)
-        }
+            setMovieData(movieData.concat(Movielist))
+        } fetchData();
     },[])
-
-    console.log(Movielist.title);
+    
+    console.log("movieDate", movieData);
+    console.log("더미", sampledata);
+    console.log("1값", movieData[1]);
+    
+    // console.log(movies);
 
     return (
         <div className="listall">
-            title: {Movielist.title}
-            <span>
-            id
-            image
-            grade
-            review
-            </span>
+                {movieData.map(Movie => (
+                    <div className="list_movie">
+                        <div className="list_title">
+                            title : {Movie.title}
+                            <p>description : {Movie.description}</p>
+                        </div>
+                        `${imageUrl}{Movie.photo}`
+                    </div>
+                ))}
         </div>
     )
 }
+// <img className="list_image" src={Movie.photo} alt="">image :</img>
+//`${imageUrl}{Movie.photo}` 이미지 url 불러오기
 
 export default handleMovie;
 
 /*
+            <div>
+                {movieData.map(dd => (
+                    <handleMovie key ={movieData.title}/>
+                ))}
+            </div>
+
             <div className="list_info">
                 <p><img src={image} alt=""/></p>
                 <span>영화이름 : {title}</span>
@@ -65,16 +74,7 @@ export default handleMovie;
             <div className="list_review">
                 <span>후기 : {review}</span>
             </div>
-            <Link to={{
-                pathname: '/Postreview',
-                state: {
-                    title: title,
-                    image: image,
-                    grade: grade
-                  }
-                }}>
             <button>후기 쓰기</button>
-            </Link>
             <p></p>
         </div>
     );
@@ -86,30 +86,16 @@ export default handleMovie;
                 */
 
 
-/* API 받고 장르 별로 */
+/*     useEffect(() => {
+        async function fetchData() {
+        const result = await axios.get("http://localhost:4000/setflix/movies")
 
-
-/*
-import { Component } from 'react';
-import Search from '../component_soonkyu/Search'
-
-class Subject extends Component {
-    render(){
-        return (
-            <header>
-            <h2>{this.props.title}</h2>
-            </header>
-        );
-    }
-}
-
-class List extends Component {
-    render() {
-        return (
-            <div className='movielist'>
-                <Subject title="영화제목" sub="평점"></Subject>
-            </div>
-        );
-    }
-}
-*/
+        fetch(result)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response.moives)
+                setMoiveData([response.results])
+            })
+        } fetchData();
+    }, [])
+    */

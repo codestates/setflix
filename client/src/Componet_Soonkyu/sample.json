@@ -1,0 +1,31 @@
+{
+  "movies": [
+    {
+    "title": "수퍼 소닉 2",
+    "photo": "https://api.themoviedb.org/3/8dzKn3RtPWUJRG9ymSpi423eMNV.jpg",
+    "releasedAt": "2022-03-30",
+    "actor": null,
+    "director": null,
+    "genre": null,
+    "description": "강력한 파워의 ‘너클즈’와 함께 돌아온 천재 과학자 ‘닥터 로보트닉’에 맞서 지구를 구하기 위해 ‘소닉’과 새로운 파트너 ‘테일즈’가 전 세계를 누비는 스피드 액션 블록버스터."
+  },
+  {
+    "title": "언차티드",
+    "photo": "https://api.themoviedb.org/3//2R8smeSDkPx6TKIRveKPXi0JVI6.jpg",
+    "releasedAt": "2022-02-10",
+    "actor": null,
+    "director": null,
+    "genre": null,
+    "description": "평범한 삶을 살던 네이선은 인생을 바꿀 뜻밖의 제안을 받는다. 그의 미션은 크루와 함께 사라진 형과 500년 전 잃어버린 천문학적인 가치를 지닌 트레져를 찾아내는 것. 그러나 몬카다의 위협 속, 누구보다 빠르게 미지의 세계에 닿기 위해 결단을 내려야만 하는데…"
+  },
+  {
+    "title": "배드 가이즈",
+    "photo": "https://api.themoviedb.org/3//x6KSvale7iuxLhsrEfhYNoICyfK.jpg",
+    "releasedAt": "2022-03-17",
+    "actor": null,
+    "director": null,
+    "genre": null,
+    "description": "작전 설계부터 금고 해제, 해킹, 액션, 위장까지 완벽한 팀플레이를 펼치는 자타공인 최고의 나쁜 녀석들이 한순간의 실수로 체포된다.  하지만 그들도 착해질 수 있다는 ‘마멀레이드 박사’의 주장으로 나쁜 녀석들은 바른 생활 갓생 프로젝트에 투입되고, 이들은 다시 한번 자유의 몸을 위해 태어나 처음으로 바른 생활에 도전하게 되는데…  나쁜 녀석들의 사상 초유 바른 생활 갓생 프로젝트가 시작된다!"
+  }
+  ]
+}
