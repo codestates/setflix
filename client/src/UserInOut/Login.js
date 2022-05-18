@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Nav from '../Componet_Soonkyu/Nav';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Nav from "../Componet_Soonkyu/Nav";
 
 axios.defaults.withCredentials = true;
 
@@ -19,23 +19,18 @@ export default function Login({ handleResponseSuccess }) {
     }
   };
 
-  const navigate = useNavigate();
-
   const handleLogin = () => {
     axios
       .post("http://localhost:4000/setflix/users/login", { userId: loginInfo.userId, password: loginInfo.password })
       .then((res) => {
         handleResponseSuccess();
       })
-      .then((res) => navigate("/mypage"))
       .catch((err) => err);
   };
 
-  console.log(loginInfo);
-
   return (
     <div>
-      <Nav/>
+      <Nav />
       <center>
         <h1>로그인</h1>
         <form onSubmit={(e) => e.preventDefault()}>

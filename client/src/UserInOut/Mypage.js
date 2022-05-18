@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Myinfo from "../Component_Junehwan/Myinfo";
 import Myreview from "../Component_Junehwan/Myreview";
-import Nav from '../Componet_Soonkyu/Nav';
+import Nav from "../Componet_Soonkyu/Nav";
 
 export default function Mypage({ userInfo, handleLogout }) {
   return (
@@ -12,7 +12,7 @@ export default function Mypage({ userInfo, handleLogout }) {
       </div>
 
       <div className="myreview">
-        <Myreview />
+        <Myreview userInfo={userInfo} />
       </div>
     </div>
   );

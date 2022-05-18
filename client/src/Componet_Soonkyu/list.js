@@ -1,12 +1,12 @@
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Movielist from "../Movie/Movielist";
 import { Link } from "react-router-dom";
 
-import './list.css';
+import "./list.css";
 
 function handleMovie() {
+
     // const [movieData, setMoiveData] = useState([{
     //     title: '',
     //     photo: '',
@@ -47,6 +47,7 @@ function handleMovie() {
             </Link>
         </div>
     )
+
 }
 
 export default handleMovie;
@@ -89,9 +90,7 @@ export default handleMovie;
                 alt="movie1"/>
                 */
 
-
 /* API 받고 장르 별로 */
-
 
 /*
 import { Component } from 'react';

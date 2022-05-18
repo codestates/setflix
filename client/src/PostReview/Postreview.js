@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Movieevaluate from '../Component_Junehwan/Movieevaluate'
-import Nav from '../Componet_Soonkyu/Nav';
+import React, { useState } from "react";
+import axios from "axios";
+import Movieevaluate from "../Component_Junehwan/Movieevaluate";
+import Nav from "../Componet_Soonkyu/Nav";
 
 export default function Postreview ({ postReview, userInfo, title, grade, image}) {
     const [movieReview, setMovieReview] = useState({
@@ -12,9 +12,11 @@ export default function Postreview ({ postReview, userInfo, title, grade, image}
     console.log(movieReview)
     const [myGrade, setMyGrade] = useState('')
 
-    const handleInputValue = (key) => (e) => {
-      setMovieReview({...movieReview, [key]: e.target.value})
-    }
+
+  const handleInputValue = (key) => (e) => {
+    setMovieReview({ ...movieReview, [key]: e.target.value });
+  };
+
 
     const handlePostReview = () => {
       const {user_id, title, comment} = movieReview
@@ -28,14 +30,14 @@ export default function Postreview ({ postReview, userInfo, title, grade, image}
       }
     }
 
-    return (
-      <div>
-        <Nav />
-        <div className='movie-evaluate'>
-          <Movieevaluate title={title} grade={grade} image={image} />
-        </div>
-        <div className='review-write'>
-          <form onSubmit={(e) => e.preventDefault()}>
+  return (
+    <div>
+      <Nav />
+      <div className="movie-evaluate">
+        <Movieevaluate title={title} grade={grade} image={image} />
+      </div>
+      <div className="review-write">
+        <form onSubmit={(e) => e.preventDefault()}>
           <div>
             <span>icon1</span>
             <span>icon2</span>
@@ -53,9 +55,11 @@ export default function Postreview ({ postReview, userInfo, title, grade, image}
             <span>후기</span>
             <input className='movie-review' onChange={handleInputValue('comment')} />
           </div>
-          <button className='btn review-submit' type='button' onClick={handlePostReview}>제출하기</button>
-          </form>
-        </div>
+          <button className="btn review-submit" type="button" onClick={handlePostReview}>
+            제출하기
+          </button>
+        </form>
       </div>
-    )
+    </div>
+  );
 }

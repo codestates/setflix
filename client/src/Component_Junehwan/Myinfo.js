@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function Myinfo({ userInfo, handleLogout }) {
-  const [number, setNumber] = useState('')
+  const [myReviews, setMyReviews] = useState([]);
+
   useEffect(() => {
-    axios.get(`http://localhost:4000/setflix/reviews/${userInfo.id}`)
-        .then((res) => setNumber(res.data.length))
-    }, [])
-  
+    axios.get(`http://localhost:4000/setflix/reviews/${userInfo.id}`).then((res) => setMyReviews(res.data));
+  }, []);
+
+  console.log(myReviews);
+
 
   return (
     <div className='information'>
@@ -17,7 +20,7 @@ export default function Myinfo({ userInfo, handleLogout }) {
         <span> 등급 </span>
         <span> 닉네임 {userInfo.nickname} </span>
       </div>
-      <div> 내 후기 갯수 {number}개 </div>
+      <div> 내 후기 갯수 {myReviews.length}개 </div>
       <div> 팔로워 수 {}명 </div>
 
       <Link to="/mypage">
