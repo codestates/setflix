@@ -5,24 +5,28 @@ import Nav from '../Componet_Soonkyu/Nav';
 
 export default function Postreview ({ postReview, userInfo, title, grade, image}) {
     const [movieReview, setMovieReview] = useState({
-        nickname: userInfo.nickname,
+        user_id: userInfo.id,
         title: '',
-        review: ''
+        comment : ''
     })
     console.log(movieReview)
+    const [myGrade, setMyGrade] = useState('')
 
     const handleInputValue = (key) => (e) => {
       setMovieReview({...movieReview, [key]: e.target.value})
     }
 
     const handlePostReview = () => {
-      const {userId, nickname, title, review} = movieReview
-      axios.post(`http://localhost:4000/setflix/reviews/${nickname}`,
-      {nickname, title, review},
+      const {user_id, title, comment} = movieReview
+      if (title === '' || comment === '') {
+      } else {
+      axios.post(`http://localhost:4000/setflix/reviews/`,
+      { user_id, title, myGrade, comment },
       {withCredentials: true}
       )
       .then((res) => postReview(res))
-  }
+      }
+    }
 
     return (
       <div>
@@ -39,14 +43,15 @@ export default function Postreview ({ postReview, userInfo, title, grade, image}
             <span>icon4</span>
           </div>
           <div>
-            <span>제목: {title}</span>
+            <span>제목</span>
+            <input className='movie-review' onChange={handleInputValue('title')} />
           </div>
           <div>
             <span>평점: *****</span>
           </div>
           <div>
             <span>후기</span>
-            <input className='movie-review' onChange={handleInputValue('review')} />
+            <input className='movie-review' onChange={handleInputValue('comment')} />
           </div>
           <button className='btn review-submit' type='button' onClick={handlePostReview}>제출하기</button>
           </form>

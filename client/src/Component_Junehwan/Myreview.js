@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function Myreview () {
-   // axios.get('http://localhost:4000/setflix/reviews', {})
-   // .then((res) => console.log(res))
+    const [reviewInfo, setReviewInfo] = useState('')
+    useEffect(() => {
+        axios.get('http://localhost:4000/setflix/reviews')
+        .then((res) => setReviewInfo(res.data))
+        }, [])
+    
+    console.log(reviewInfo)
 
     return (
-        <div>
+        <div className='information'>
             <img className='movie-pic' />
             <div>후기 제목</div>
             <div>후기 내용</div>

@@ -8,6 +8,7 @@ import Mypage from "./UserInOut/Mypage";
 import Modify from "./UserInOut/Modify";
 
 import Postreview from "./PostReview/Postreview";
+import Reviewlist from "./PostReview/Reviewlist"
 
 import axios from "axios";
 import Homepage from "./Movie/Homepage";
@@ -23,13 +24,12 @@ export default function App() {
   const [userInfo, setUserInfo] = useState(null);
   const navigate = useNavigate();
 
-  console.log(userInfo)
-  console.log(isLogin)
   const isAuthenticated = () => {
     // TODO: 이제 인증은 성공했습니다. 사용자 정보를 호출하고, 이에 성공하면 로그인 상태를 바꿉시다.
     axios
       .get("http://localhost:4000/setflix/users/auth")
       .then((res) => {
+        console.log(res)
         setIsLogin(true);
         setUserInfo(res.data.data.userInfo);
         if (isLogin === true) {
@@ -69,6 +69,7 @@ export default function App() {
         <Route path="/Modify" element={<Modify userInfo={userInfo} handleLogout={handleLogout} />} />
         <Route path="/Movielist" element={<Movielist /> } />
         <Route path="/Postreview" element={<Postreview postReview={postReview} userInfo={userInfo} />} />
+        <Route path="/Reviewlist" element={<Reviewlist userInfo={userInfo} />} />
       </Routes>
     </div>
   );
