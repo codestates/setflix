@@ -12,7 +12,7 @@ export default function Signup() {
     nickname: "",
     email: "",
   });
-
+  const [errorMessage, setErrorMessage] = useState('');
   const [passwordCheck, setPasswordCheck] = useState({
     passwordCheck: "",
   });
@@ -34,49 +34,58 @@ export default function Signup() {
 
   const handleSignup = () => {
     const { userId, password, nickname, email } = userInfo;
-
-    axios.post("http://localhost:4000/setflix/users/signup", { userId, password, nickname, email }).then((res) => navigate("/login"));
+    if (email === '' || password === '' || userId === '' || nickname === '') {
+      setErrorMessage('모든 항목은 필수입니다')
+    } else {
+    axios.post("http://localhost:4000/setflix/users/signup",
+    { userId, password, nickname, email },
+    {withCredentials: true})
+    .then((res) => navigate("/login"));
+    }
   };
 
   return (
-    <div className="signup">
+    <div>
       <Nav />
       <center>
         <h1>회원가입</h1>
       </center>
       <form onSubmit={(e) => e.preventDefault()}>
-        <div>
+        <div className='signup'>
           <span>아이디</span>
-          <input type="userId" onChange={handleInputValue("userId")} />
+          <input className="input-box" type='text' onChange={handleInputValue('userId')}/>
         </div>
-        <div>
+        <div className='signup'>
           <span>패스워드</span>
           <input className="input-box" type="password" onChange={handleInputValue("password")} />
         </div>
-        <div>
+        <div className='signup'>
           <span>패스워드 확인</span>
           <input className="input-box" type="password" onChange={rehandleInputValue("passwordCheck")} />
           <div> {userInfo.password === passwordCheck.passwordCheck ? "비밀번호가 일치합니다" : "비밀번호가 일치하지 않습니다"} </div>
         </div>
-        <div>
+        <div className='signup'>
           <span>닉네임</span>
-          <input className="input-box" type="nickname" onChange={handleInputValue("nickname")} />
+          <input className="input-box" type="text" onChange={handleInputValue("nickname")} />
         </div>
-        <div>
+        <div className='signup'>
           <span>이메일</span>
           <input className="input-box" type="email" onChange={handleInputValue("email")} />
           <button className="btn email-check" type="button">
             인증하기
           </button>
         </div>
-        <div>
+        <div className='signup'>
           <span>이메일 인증</span>
-          <input className="input-box" type="email-check" />
+          <input className="input-box" type="email" />
         </div>
         <center>
           <button className="btn btn-signup" type="button" onClick={handleSignup}>
             가입하기
           </button>
+          <div>
+          {errorMessage}
+          </div>
         </center>
       </form>
     </div>

@@ -36,7 +36,7 @@ export default function Login({ handleResponseSuccess }) {
         <form onSubmit={(e) => e.preventDefault()}>
           <div>
             <span>아이디</span>
-            <input className="input-box" type="userId" onChange={handleInputValue("userId")} />
+            <input className="input-box" type="text" onChange={handleInputValue("userId")} />
           </div>
           <div>
             <span>패스워드</span>
@@ -57,11 +57,6 @@ export default function Login({ handleResponseSuccess }) {
               아이디/패스워드 찾기
             </button>
           </Link>
-        </div>
-        <div>
-          <h3>소셜 로그인</h3>
-          <div>네이버 로그인</div>
-          <div>카카오 로그인</div>
         </div>
       </center>
     </div>

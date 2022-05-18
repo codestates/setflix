@@ -1,42 +1,53 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Movielist from "../Movie/Movielist";
+import { Link } from "react-router-dom";
 
 import "./list.css";
 
 function handleMovie() {
-  const [movieData, setMoiveData] = useState([
-    {
-      title: "",
-      photo: "",
-      releasedAt: "",
-      description: "",
-    },
-  ]);
 
-  useEffect(async () => {
-    try {
-      const res = await axios.get("http://localhost:4000/setflix/movies");
-      const Movielist = await res.data.map((Moviedata) => ({
-        title: Moviedata.title,
-        image: Moviedata.photo,
-        releasedAtL: Moviedata.releasedAt,
-        description: Moviedata.description,
-      }));
-      setMoiveData(movieData.concat(Movielist));
-    } catch (e) {
-      console.error(e.message);
-    }
-  }, []);
+    // const [movieData, setMoiveData] = useState([{
+    //     title: '',
+    //     photo: '',
+    //     releasedAt: '',
+    //     description: ''
+    // }])
 
-  console.log(Movielist.title);
+    // useEffect(async() => {
+    //     try{
+    //         const res = await axios.get("http://localhost:4000/setflix/movies")
+    //         const Movielist = await res.data.map((Moviedata) => (
+    //             {
+    //                 title: Moviedata.title,
+    //                 image: Moviedata.photo,
+    //                 releasedAtL: Moviedata.releasedAt,
+    //                 description: Moviedata.description
+    //             })
+    //         )
+    //         setMoiveData(movieData.concat(Movielist))
+    //     } catch(e){
+    //         console.error(e.message)
+    //     }
+    // },[])
 
-  return (
-    <div className="listall">
-      title: {Movielist.title}
-      <span>id image grade review</span>
-    </div>
-  );
+    // console.log(Movielist.title);
+
+    return (
+        <div className="listall">
+            title: {Movielist.title}
+            <span>
+            id
+            image
+            grade
+            review
+            </span>
+            <Link to='/postreview'>
+            <button>후기 쓰기</button>
+            </Link>
+        </div>
+    )
+
 }
 
 export default handleMovie;

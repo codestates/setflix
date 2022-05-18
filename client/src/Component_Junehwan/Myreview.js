@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Myreview({ userInfo }) {
-  const [myReviews, setMyReviews] = useState([{ title: "", comment: "", updateAt: "" }]);
+  const [myReviews, setMyReviews] = useState([{ title: "", comment: "", updatedAt: "" }]);
 
   useEffect(() => {
     axios.get(`http://localhost:4000/setflix/reviews/${userInfo.id}`).then((res) => setMyReviews(res.data));

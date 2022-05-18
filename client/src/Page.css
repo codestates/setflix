@@ -1,5 +1,11 @@
-.signup{
-  margin: 10px 450px;
+.signup {
+  margin: 10px 500px;
+}
+
+.information {
+  text-align: center;
+  font-size: 20px;
+  margin: 10px;
 }
 
 .myinfo {
@@ -35,7 +41,11 @@
   left: 0px;
   width: 300px;
   border: 3px solid red;
-  padding: 10px
+  padding: 10px;
+
+  text-align: center;
+  font-size: 20px;
+  margin: 10px;
 }
 
 .review-write {
@@ -45,6 +55,23 @@
   width: 300px;
   border: 3px solid red;
   padding: 10px;
+
+  text-align: center;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.third-component {
+  display: flex;
+  position: absolute;
+  left: 1000px;
+  width: 300px;
+  border: 3px solid red;
+  padding: 10px;
+
+  text-align: center;
+  font-size: 20px;
+  margin: 10px;
 }
 
 .input-box {
@@ -66,6 +93,6 @@
     font-weight: 600;
     transition: 0.25s;
 
-    background-color: #6aafe6;
+    background-color: #fa414a;
     color: #d4dfe6;
 }
