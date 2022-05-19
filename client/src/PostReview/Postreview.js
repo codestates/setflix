@@ -3,7 +3,8 @@ import axios from "axios";
 import Movieevaluate from "../Component_Junehwan/Movieevaluate";
 import Nav from "../Componet_Soonkyu/Nav";
 
-export default function Postreview ({ postReview, userInfo, title, grade, image}) {
+export default function Postreview ({ postReview, userInfo, thisMovie }) {
+  console.log(thisMovie)
     const [movieReview, setMovieReview] = useState({
         user_id: userInfo.id,
         title: '',
@@ -18,7 +19,7 @@ export default function Postreview ({ postReview, userInfo, title, grade, image}
   };
 
 
-    const handlePostReview = () => {
+  const handlePostReview = () => {
       const {user_id, title, comment} = movieReview
       if (title === '' || comment === '') {
       } else {
@@ -28,36 +29,32 @@ export default function Postreview ({ postReview, userInfo, title, grade, image}
       )
       .then((res) => postReview(res))
       }
-    }
+  }
 
   return (
     <div>
       <Nav />
-      <div className="movie-evaluate">
-        <Movieevaluate title={title} grade={grade} image={image} />
+      <div className="first-component">
+        <Movieevaluate />
       </div>
-      <div className="review-write">
+      <div className="second-component">
         <form onSubmit={(e) => e.preventDefault()}>
           <div>
-            <span>icon1</span>
-            <span>icon2</span>
-            <span>icon3</span>
-            <span>icon4</span>
+            <span>제목</span>
+            <input className='movie-review-title' onChange={handleInputValue('title')} />
           </div>
           <div>
-            <span>제목</span>
-            <input className='movie-review' onChange={handleInputValue('title')} />
+            <span>후기</span>
+            <input className='movie-review-comment' onChange={handleInputValue('comment')} />
           </div>
           <div>
             <span>평점: *****</span>
           </div>
-          <div>
-            <span>후기</span>
-            <input className='movie-review' onChange={handleInputValue('comment')} />
-          </div>
-          <button className="btn review-submit" type="button" onClick={handlePostReview}>
+          <div className="button-height">
+          <button className="btn" type="button" onClick={handlePostReview}>
             제출하기
           </button>
+          </div>
         </form>
       </div>
     </div>

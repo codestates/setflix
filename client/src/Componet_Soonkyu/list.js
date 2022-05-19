@@ -40,11 +40,18 @@ function handleMovie( ) {
                             <p>description : {Movie.description}</p>
                         </div>
                         `${imageUrl}{Movie.photo}`
+                        
+                    <div>
+                    <Link 
+                        to={{
+                            pathname:'/postreview',
+                            state: {thisMovie: {Movie}}
+                        }}>
+                    <button>후기 쓰기</button>
+                    </Link>
                     </div>
-            <Link to='/postreview'>
-            <button>후기 쓰기</button>
-            </Link>
-                ))}
+                    </div>
+                    ))}
         </div>
     )
 }
