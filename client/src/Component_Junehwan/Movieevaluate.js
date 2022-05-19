@@ -13,11 +13,11 @@ export default function Movieevaluate({ data }) {
       <div>후기 {}개</div>
       <div>평점: {}</div>
 
-      <Link to="/reviewlist">
+      <Link to="/reviewlist" state={{ data: data }}>
         <div>후기 목록</div>
       </Link>
 
-      <Link to="/postreview">
+      <Link to="/postreview" state={{ data: data }}>
         <div>후기 작성</div>
       </Link>
     </div>
