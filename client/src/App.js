@@ -38,7 +38,6 @@ export default function App() {
         setUserInfo(res.data.data.userInfo);
       })
       .then((res) => {
-        navigate("/mypage");
       })
       .catch((err) => err);
   };
@@ -74,7 +73,7 @@ export default function App() {
         <Route path="/FindAccount" element={<Findaccount />} />
         <Route path="/Mypage" element={<Mypage userInfo={userInfo} handleLogout={handleLogout} />} />
         <Route path="/Modify" element={<Modify userInfo={userInfo} handleLogout={handleLogout} />} />
-        <Route path="/Movielist" element={<Movielist />} />
+        <Route path="/Movielist" element={<Movielist isLogin={isLogin} handleLogout={handleLogout} />} />
         <Route path="/Postreview" element={<Postreview postReview={postReview} userInfo={userInfo} />} />
         <Route path="/Reviewlist" element={<Reviewlist userInfo={userInfo} />} />
       </Routes>

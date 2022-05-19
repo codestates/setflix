@@ -1,5 +1,12 @@
-.Home {
 
+
+.Home {
+    align-items: center;
+    background-color: black;
+    color:white;
+}
+
+.Homegrid{
     background-color: black;
     color:white;
 }

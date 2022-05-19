@@ -3,16 +3,16 @@ import Myinfo from "../Component_Junehwan/Myinfo";
 import Myreview from "../Component_Junehwan/Myreview";
 import Nav from "../Componet_Soonkyu/Nav";
 
-export default function Mypage({ userInfo, handleLogout }) {
+export default function Mypage ({ userInfo, handleLogout }) {
   return (
     <div>
       <Nav />
-      <div className="myinfo">
+      <div className="first-component">
         <Myinfo userInfo={userInfo} handleLogout={handleLogout} />
 
       </div>
 
-      <div className="myreview">
+      <div className="second-component">
         <Myreview userInfo={userInfo} />
       </div>
     </div>

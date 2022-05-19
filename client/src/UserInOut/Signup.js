@@ -69,13 +69,6 @@ export default function Signup() {
           <input className="input-box" type="text" onChange={handleInputValue("nickname")} />
         </div>
         <div className='signup'>
-          <span>이메일</span>
-          <input className="input-box" type="email" onChange={handleInputValue("email")} />
-          <button className="btn email-check" type="button">
-            인증하기
-          </button>
-        </div>
-        <div className='signup'>
           <span>이메일 인증</span>
           <input className="input-box" type="email" />
         </div>
@@ -91,3 +84,12 @@ export default function Signup() {
     </div>
   );
 }
+
+{/* <div className='signup'>
+<span>이메일</span>
+<input className="input-box" type="email" onChange={handleInputValue("email")} />
+<button className="btn email-check" type="button">
+  인증하기
+</button>
+</div> */}
+

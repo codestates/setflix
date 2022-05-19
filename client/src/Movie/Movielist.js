@@ -1,23 +1,48 @@
-import React, { useState } from 'react';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import './Movielist.css';
-import List from '../Componet_Soonkyu/list'
 import Nav from '../Componet_Soonkyu/Nav';
+import { Link } from "react-router-dom";
 
-function Movielist (props) {
+function Movielist({ isLogin }) {
+    const [movieData, setMovieData] = useState([]);
+    const imageUrl = "https://image.tmdb.org/t/p/";
+    //const images = `${imageUrl}w500${Movie.photo}`
+
+    useEffect( () => {
+        async function fetchData() {
+            const res = await axios.get("http://localhost:4000/setflix/movies")
+            .then((res) => setMovieData(res.data))
+            const Movielist = res.movies.map((Movie) => (
+                {
+                    title: Movie.title,
+                    image: Movie.photo,
+                    releasedAtL: Movie.releasedAt,
+                    description: Movie.description
+                })
+            )
+            setMovieData(movieData.concat(Movielist))
+        } fetchData();
+    },[])
+
     return (
         <div className='movieall'>
-            <Nav/>
+            <Nav isLogin={isLogin}/>
             <div className='movie-container'>
-                <div className='movie-row'>
-                    <p>영화 리스트</p>
-                    <span>최신영화</span>
-                    <List
-                        img className="ex" scr={props.image}/>
-                </div>
-                <div className='movie-row'>
-
-                    <span>액션영화(장르 별로)</span>
-                </div>        
+                {movieData.map(Movie => (
+                    <div>
+                        제목 : {Movie.title}
+                    <div className="movielist_image">
+                        <img style={{ height: '600px' }} src={`${imageUrl}w780${Movie.photo}`} alt={Movie.id}/>
+                    </div>
+                    <div className="movielist">
+                        <p>줄거리 : {Movie.description}</p>
+                    </div>
+                    <Link to='/postreview'>
+            <button>후기 쓰기</button>
+            </Link>
+                    </div>    
+                ))}
             </div>
         </div>
     )

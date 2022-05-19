@@ -23,7 +23,6 @@ export default function Myinfo({ userInfo, handleLogout }) {
         <span> 닉네임 {userInfo.nickname} </span>
       </div>
       <div> 내 후기 갯수 {myReviews.length}개 </div>
-      <div> 팔로워 수 {}명 </div>
 
       <Link to="/mypage">
         <div> 후기 관리 </div>
