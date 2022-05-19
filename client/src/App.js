@@ -8,7 +8,7 @@ import Mypage from "./UserInOut/Mypage";
 import Modify from "./UserInOut/Modify";
 
 import Postreview from "./PostReview/Postreview";
-import Reviewlist from "./PostReview/Reviewlist"
+import Reviewlist from "./PostReview/Reviewlist";
 
 import axios from "axios";
 import Homepage from "./Movie/Homepage";
@@ -24,7 +24,6 @@ export default function App() {
   const [userInfo, setUserInfo] = useState(null);
   const navigate = useNavigate();
 
-
   console.log(userInfo);
   console.log(isLogin);
 
@@ -34,12 +33,13 @@ export default function App() {
     axios
       .get("http://localhost:4000/setflix/users/auth")
       .then((res) => {
-        console.log(res)
+        console.log(res);
         setIsLogin(true);
         setUserInfo(res.data.data.userInfo);
       })
       .then((res) => {
-        navigate("/Mypage")
+        navigate("/mypage");
+
       })
       .catch((err) => err);
   };
