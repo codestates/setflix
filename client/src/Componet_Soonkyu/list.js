@@ -55,22 +55,29 @@ function handleMovie( ) {
     )
 }
 
-// <img className="list_image" src={Movie.photo} alt="">image :</img>
-//`${imageUrl}{Movie.photo}` 이미지 url 불러오기
 
 /*
+---------------기존-----------
         <div className="listall">
                 {movieData.map(Movie => (
                     <div className="list_movie">
-                        <div className="list_image>">
-                            <Link to='/postreview'><img src={`${imageUrl}w500${Movie.photo}`} alt={Movie.id}/></Link>
-                        </div>
                         <div className="list_title">
                             title : {Movie.title}
                             <p>description : {Movie.description}</p>
                         </div>
+                        `${imageUrl}{Movie.photo}`
+                        
+                    <div>
+                    <Link 
+                        to={{
+                            pathname:'/postreview',
+                            state: {thisMovie: {Movie}}
+                        }}>
+                    <button>후기 쓰기</button>
+                    </Link>
                     </div>
-                ))}           
+                    </div>
+                    ))}        
             */
 
 export default handleMovie;
