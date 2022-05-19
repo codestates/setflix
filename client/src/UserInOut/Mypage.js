@@ -3,10 +3,10 @@ import Myinfo from "../Component_Junehwan/Myinfo";
 import Myreview from "../Component_Junehwan/Myreview";
 import Nav from "../Componet_Soonkyu/Nav";
 
-export default function Mypage ({ userInfo, handleLogout }) {
+export default function Mypage ({ isLogin, userInfo, handleLogout }) {
   return (
     <div>
-      <Nav />
+      <Nav userInfo={userInfo} isLogin={isLogin}/>
       <div className="first-component">
         <Myinfo userInfo={userInfo} handleLogout={handleLogout} />
 

@@ -9,11 +9,11 @@ function Homepage({ isLogin }) {
     <div>
     <div className="Home">
       <Nav isLogin={isLogin} />
-      홈페이지 본문
-    </div>
-    <div className="Homegrid">
+        <div className="Homemain">
+          영화 목록
+          <Link to ="/Movielist">영화 더 보기</Link>
+        </div>
       <List/>
-      <Link to ="/Movielist">영화 더 보기</Link>
       </div>
  </div>
  

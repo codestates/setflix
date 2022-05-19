@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Nav.css';
 import { Link } from 'react-router-dom';
 
-function Nav({ isLogin, handleLogout }) {
+function Nav({ isLogin, userInfo, handleLogout }) {
 /*
     const hadleSearch = () => {
         let nextState = {};
@@ -18,10 +18,11 @@ function Nav({ isLogin, handleLogout }) {
         }
     }
 */
+
 return (
     <nav className="navigation">
         <div className="navigation_left">
-            <img className="navigation_logo" src="https://mblogthumb-phinf.pstatic.net/MjAyMDA5MTZfMjc1/MDAxNjAwMjMwMDI0MjU0.CEm_wbVD1SDBfzA07yh7rRfM-zYQGcBO1zoh_q5zFrAg.WeAhy93tXaRWJzxbdBuneabs5nBibS5UZPA-siJEOSsg.PNG.designmage/6.png?type=w800" alt="setflixlogo"/>
+            <img className="navigation_logo" src="https://cdn.pixabay.com/photo/2013/07/12/16/23/alphabet-150826_960_720.png" alt="setflixlogo"/>
             <div className="navigation_home">
                 <Link to ="/">Home</Link>
             </div>
@@ -35,10 +36,17 @@ return (
         <div className="navigation_right">
         {isLogin === true ? 
         <div>
-        <Link to ="/Mypage">mypage</Link>
-        <button type='button' onClick={handleLogout}>logout</button>
+        <Link to ="/Mypage">환영합니다.</Link>
+        {"  "}
+        <Link to ="/login">
+        <button className='button' onClick={handleLogout}>Logout</button>
+        </Link>
         </div>:
-        <Link to ="/Login">login/signup</Link>
+        <div>
+        <Link to ="/Login">Login</Link>
+        {""} / {""}
+        <Link to ="/Signup">Signup</Link>
+        </div>
         }
         </div>
     </nav>
