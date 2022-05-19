@@ -1,6 +1,8 @@
 .listall {
     background-color: black;
-    width: 85%;;
     margin: '1rem auto';
-    grid-template-columns: repeat(auto-fill, nimax(20%, auto));
+
 }
+
+/*   grid-template-columns: repeat(auto-fill, nimax(20%, auto));
+*/

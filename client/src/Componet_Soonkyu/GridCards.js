@@ -1,12 +1,12 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Col } from "antd";
+import "antd/dist/antd.min.css";
 import { Link } from "react-router-dom";
 
-export default function GridCars(props) {
-    console.log("props값", props);
+export default function GridCards(props) {
 
     return (
-        <Grid lg={6} md={8} xs={24}>
+        <Col lg={6} md={8} xs={24}>
             <div style={{ position: 'relative'}}>
                     <Link to='/postreview'>
                         <img style={{ width: '100%', height: '320px'}}
@@ -15,7 +15,7 @@ export default function GridCars(props) {
                     />
                     </Link>
             </div>
-        </Grid>
+        </Col>
     );
 }
 

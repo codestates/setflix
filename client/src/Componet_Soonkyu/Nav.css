@@ -11,8 +11,6 @@
 .navigation {
     justify-content: space-between;
     padding: 10px 15px;
-    margin-right: auto;
-    margin-left: auto;
     height: 60px;
     display:flex;
     align-items: center;
@@ -22,13 +20,17 @@
     z-index: 100; /*겹치는 부분에 대한 값*/
 }
 
+.navigation_home {
+    margin-left: 20px;
+}
+
 .navigation_left {
     display: flex;
     align-items: center;
 }
 
 .navigation_logo {
-    width: 100px;
+    width: 20px;
     object-fit: contain; /*컨테이너 크기에 맞춤 */
     margin: 0 20px; /* 상하 0 좌우 20 */
 }
@@ -59,6 +61,7 @@
 .navigation_right{
     display: flex;
     align-items: center;
+    margin-right: 10px;
 }
 
 @media screen and (max-width:705px){

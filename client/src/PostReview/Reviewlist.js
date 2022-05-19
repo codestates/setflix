@@ -3,7 +3,7 @@ import axios from 'axios';
 import Movieevaluate from '../Component_Junehwan/Movieevaluate';
 import Nav from '../Componet_Soonkyu/Nav';
 
-export default function Reviewlist ({ userInfo }) {
+export default function Reviewlist ({ isLogin, userInfo }) {
     const [myReviews, setMyReviews] = useState([{ title: "", comment: "", updatedAt: "" }]);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export default function Reviewlist ({ userInfo }) {
 
     return (
         <div>
-            <Nav />
+            <Nav isLogin={isLogin}/>
             <div className='first-component'>
                 <Movieevaluate />
             </div>

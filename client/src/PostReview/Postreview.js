@@ -3,7 +3,7 @@ import axios from "axios";
 import Movieevaluate from "../Component_Junehwan/Movieevaluate";
 import Nav from "../Componet_Soonkyu/Nav";
 
-export default function Postreview ({ postReview, userInfo, thisMovie }) {
+export default function Postreview ({ isLogin, postReview, userInfo, thisMovie }) {
   console.log(thisMovie)
     const [movieReview, setMovieReview] = useState({
         user_id: userInfo.id,
@@ -33,7 +33,7 @@ export default function Postreview ({ postReview, userInfo, thisMovie }) {
 
   return (
     <div>
-      <Nav />
+      <Nav isLogin={isLogin}/>
       <div className="first-component">
         <Movieevaluate />
       </div>
