@@ -1,54 +1,62 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Movieevaluate from '../Component_Junehwan/movieevaluate';
+import React, { useState } from "react";
+import axios from "axios";
+import Movieevaluate from "../Component_Junehwan/Movieevaluate";
+import Nav from "../Componet_Soonkyu/Nav";
 
-export default function Postreview () {
+export default function Postreview ({ postReview, userInfo, thisMovie }) {
+  console.log(thisMovie)
     const [movieReview, setMovieReview] = useState({
-        movieTitle: '',
-        movieReview: '',
+        user_id: userInfo.id,
+        title: '',
+        comment : ''
     })
+    console.log(movieReview)
+    const [myGrade, setMyGrade] = useState('')
 
-    const handleInputValue = (key) => (e) => {
-      setMovieReview({...movieReview, [key]: e.target.value})
-    }
 
-    const handlePostReview = () => {
-      const {movieTitle, movieReview} = loginInfo
-      axios.post('https://localhost:4000/review',
-      {movieTitle, movieReview},
+  const handleInputValue = (key) => (e) => {
+    setMovieReview({ ...movieReview, [key]: e.target.value });
+  };
+
+
+  const handlePostReview = () => {
+      const {user_id, title, comment} = movieReview
+      if (title === '' || comment === '') {
+      } else {
+      axios.post(`http://localhost:4000/setflix/reviews/`,
+      { user_id, title, myGrade, comment },
       {withCredentials: true}
       )
-      .then((res) => console.log(res))
+      .then((res) => postReview(res))
+      }
   }
 
-    return (
-      <div>
-        <div>
-          <Movieevaluate />
-        </div>
-        <div>
-          <form onSubmit={(e) => e.preventDefault()}>
-          <div>
-            <span>icon1</span>
-            <span>icon2</span>
-            <span>icon3</span>
-            <span>icon4</span>
-          </div>
+  return (
+    <div>
+      <Nav />
+      <div className="first-component">
+        <Movieevaluate />
+      </div>
+      <div className="second-component">
+        <form onSubmit={(e) => e.preventDefault()}>
           <div>
             <span>제목</span>
-            <input className='movie-title' />
-          </div>
-          <div>
-            <span>평점</span>
-            <span>*****</span>
+            <input className='movie-review-title' onChange={handleInputValue('title')} />
           </div>
           <div>
             <span>후기</span>
-            <input className='movie-review' onChange={handleInputValue('review')} />
+            <input className='movie-review-comment' onChange={handleInputValue('comment')} />
           </div>
-          <button className='btn review-submit' onClick={handlePostReview}>제출하기</button>
-          </form>
-        </div>
+          <div>
+            <span>평점: *****</span>
+          </div>
+          <div className="button-height">
+          <button className="btn" type="button" onClick={handlePostReview}>
+            제출하기
+          </button>
+          </div>
+        </form>
       </div>
-    )
+    </div>
+  );
 }
