@@ -4,11 +4,11 @@ import Movieevaluate from "../Component_Junehwan/Movieevaluate";
 import Nav from "../Componet_Soonkyu/Nav";
 import { useLocation } from "react-router";
 
-export default function Postreview({ postReview, userInfo, thisMovie }) {
+
+export default function Postreview({ isLogin, postReview, userInfo, thisMovie }) {
   console.log(thisMovie);
   const location = useLocation();
   const data = location.state.data; //링크를타고온 무비데이타
-
   const [movieReview, setMovieReview] = useState({
     user_id: userInfo.id,
     movie_id: data.id, //영화 아이디
@@ -32,7 +32,7 @@ export default function Postreview({ postReview, userInfo, thisMovie }) {
 
   return (
     <div>
-      <Nav />
+      <Nav isLogin={isLogin}/>
       <div className="first-component">
         <Movieevaluate data={data} />
       </div>

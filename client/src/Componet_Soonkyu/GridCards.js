@@ -1,5 +1,6 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Col } from "antd";
+import "antd/dist/antd.min.css";
 import { Link } from "react-router-dom";
 
 export default function GridCars(props) {
@@ -14,6 +15,7 @@ export default function GridCars(props) {
       </div>
     </Grid>
   );
+
 }
 
 // <a href={`/postreview/${props.title}`}></a>

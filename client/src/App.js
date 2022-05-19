@@ -39,6 +39,7 @@ export default function App() {
       })
       .then((res) => {
         navigate("/mypage");
+
       })
       .catch((err) => err);
   };
@@ -68,15 +69,15 @@ export default function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/" element={<Homepage isLogin={isLogin} handleLogout={handleLogout} />} />
+        <Route exact path="/" element={<Homepage isLogin={isLogin} userInfo={userInfo}handleLogout={handleLogout} />} />
         <Route path="/Login" element={<Login isLogin={isLogin} handleResponseSuccess={handleResponseSuccess} />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/FindAccount" element={<Findaccount />} />
-        <Route path="/Mypage" element={<Mypage userInfo={userInfo} handleLogout={handleLogout} />} />
+        <Route path="/Mypage" element={<Mypage isLogin={isLogin} userInfo={userInfo} handleLogout={handleLogout} />} />
         <Route path="/Modify" element={<Modify userInfo={userInfo} handleLogout={handleLogout} />} />
         <Route path="/Movielist" element={<Movielist isLogin={isLogin} handleLogout={handleLogout} />} />
-        <Route path="/Postreview" element={<Postreview postReview={postReview} userInfo={userInfo} />} />
-        <Route path="/Reviewlist" element={<Reviewlist userInfo={userInfo} />} />
+        <Route path="/Postreview" element={<Postreview isLogin={isLogin} postReview={postReview} userInfo={userInfo} />} />
+        <Route path="/Reviewlist" element={<Reviewlist isLogin={isLogin} userInfo={userInfo} />} />
       </Routes>
     </div>
   );

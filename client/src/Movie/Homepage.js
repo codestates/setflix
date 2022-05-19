@@ -7,13 +7,15 @@ import List from "../Componet_Soonkyu/list";
 function Homepage({ isLogin }) {
   return (
     <div>
-      <div className="Home">
-        <Nav isLogin={isLogin} />
-        홈페이지 본문
-      </div>
-      <div className="Homegrid">
-        <List isLogin={isLogin} />
-        <Link to="/Movielist">영화 더 보기</Link>
+
+    <div className="Home">
+      <Nav isLogin={isLogin} />
+        <div className="Homemain">
+          영화 목록
+          <Link to ="/Movielist">영화 더 보기</Link>
+        </div>
+      <List/>
+
       </div>
     </div>
   );
