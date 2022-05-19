@@ -38,6 +38,7 @@ export default function App() {
         setUserInfo(res.data.data.userInfo);
       })
       .then((res) => {
+        navigate("/mypage");
       })
       .catch((err) => err);
   };

@@ -6,7 +6,8 @@ import sampledata from "./sample.json";
 import GridCars from "./GridCards";
 import { Row } from "antd";
 
-function handleMovie() {
+function handleMovie({ isLogin }) {
+  ///왜 리스트가아니라 핸들무비?
   const [movieData, setMovieData] = useState([]);
   const imageUrl = "https://image.tmdb.org/t/p/";
   //const images = `${imageUrl}w500${Movie.photo}`
@@ -15,6 +16,7 @@ function handleMovie() {
     async function fetchData() {
       const res = await axios.get("http://localhost:4000/setflix/movies").then((res) => setMovieData(res.data));
       const Movielist = res.movies.map((Movie) => ({
+        id: Movie.id,
         title: Movie.title,
         image: Movie.photo,
         releasedAtL: Movie.releasedAt,
@@ -38,7 +40,7 @@ function handleMovie() {
         {movieData &&
           movieData.map((Movie, index) => (
             <React.Fragment key={index}>
-              <GridCars image={`${imageUrl}w500${Movie.photo}`} title={Movie.title} movieid={Movie.id} />
+              <GridCars image={`${imageUrl}w185${Movie.photo}`} title={Movie.title} movieid={Movie.id} isLogin={isLogin} />
             </React.Fragment>
           ))}
         <Link to="/postreview">
