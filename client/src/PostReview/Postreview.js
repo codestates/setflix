@@ -3,7 +3,7 @@ import axios from "axios";
 import Movieevaluate from "../Component_Junehwan/Movieevaluate";
 import Nav from "../Componet_Soonkyu/Nav";
 import { useLocation } from "react-router";
-
+import { Link } from "react-router-dom";
 
 export default function Postreview({ isLogin, postReview, userInfo, thisMovie }) {
   console.log(thisMovie);
@@ -26,13 +26,13 @@ export default function Postreview({ isLogin, postReview, userInfo, thisMovie })
     const { user_id, movie_id, title, comment } = movieReview;
     if (title === "" || comment === "") {
     } else {
-      axios.post(`http://localhost:4000/setflix/reviews/`, { user_id, movie_id, title, myGrade, comment }, { withCredentials: true }).then((res) => postReview(res));
+      axios.post(`http://localhost:4000/setflix/reviews/`, { user_id, movie_id, title, myGrade, comment }, { withCredentials: true });
     }
   };
 
   return (
     <div>
-      <Nav isLogin={isLogin}/>
+      <Nav isLogin={isLogin} />
       <div className="first-component">
         <Movieevaluate data={data} />
       </div>
@@ -50,9 +50,11 @@ export default function Postreview({ isLogin, postReview, userInfo, thisMovie })
             <span>평점: *****</span>
           </div>
           <div className="button-height">
-            <button className="btn" type="button" onClick={handlePostReview}>
-              제출하기
-            </button>
+            <Link to="/Reviewlist" state={{ data: data }}>
+              <button className="btn" type="button" onClick={handlePostReview}>
+                제출하기
+              </button>
+            </Link>
           </div>
         </form>
       </div>
